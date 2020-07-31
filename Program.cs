@@ -1,3 +1,4 @@
+using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
@@ -14,7 +15,7 @@ namespace Streamer
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseStartup<Startup>().UseKestrel().UseContentRoot(Directory.GetCurrentDirectory());
                 });
     }
 }
